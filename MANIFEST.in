@@ -1,0 +1,2 @@
+recursive-include spasm-jupyter-widget-example/static *.*
+include spasm-jupyter-widget-example.json

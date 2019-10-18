@@ -1,0 +1,5 @@
+{
+  "load_extensions": {
+    "spasm-jupyter-widget-example/extension": true
+  }
+}
