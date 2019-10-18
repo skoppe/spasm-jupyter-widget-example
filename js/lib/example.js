@@ -1,21 +1,10 @@
 var widgets = require('@jupyter-widgets/base');
+import * as spasmModule from './spasm.js'
+import * as spa from './spa.js'
 
-// Custom Model. Custom widgets models must at least provide default values
-// for model attributes, including
-//
-//  - `_view_name`
-//  - `_view_module`
-//  - `_view_module_version`
-//
-//  - `_model_name`
-//  - `_model_module`
-//  - `_model_module_version`
-//
-//  when different from the base class.
+const spasm = spasmModule.spasm;
 
-// When serialiazing the entire widget state for embedding, only values that
-// differ from the defaults will be specified.
-var HelloModel = widgets.DOMWidgetModel.extend({
+export const HelloModel = widgets.DOMWidgetModel.extend({
     defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
         _model_name : 'HelloModel',
         _view_name : 'HelloView',
@@ -23,25 +12,42 @@ var HelloModel = widgets.DOMWidgetModel.extend({
         _view_module : 'spasm_jupyter_widget_example',
         _model_module_version : '0.1.0',
         _view_module_version : '0.1.0',
-        value : 'Hello World!'
+        value: 3
     })
 });
 
+const modelExports = {
+    env: {
+        getModelInt: (ptr, len, off) => {
+            return spasm.objects[ptr].get(spasmModule.decoders.string(len,off));
+        },
+        setModelInt: (ptr, len, off, value) => {
+            spasm.objects[ptr].set(spasmModule.decoders.string(len, off), value);
+        },
+        saveChanges: (ptr) => {
+            spasm.objects[ptr].save_changes();
+        },
+        onModelChange: (ptr, len, off, cbCtx, cbPtr) => {
+            spasm.objects[ptr].on(spasmModule.decoders.string(len,off), ()=>spasm.instance.exports.__indirect_function_table.get(cbPtr)(cbCtx));
+        }
+    }
+}
 
-// Custom View. Renders the widget model.
-var HelloView = widgets.DOMWidgetView.extend({
+export const HelloView = widgets.DOMWidgetView.extend({
     render: function() {
-        this.value_changed();
-        this.model.on('change:value', this.value_changed, this);
-    },
-
-    value_changed: function() {
-        this.el.textContent = this.model.get('value');
+        // NOTE: spasm by default comes with a getRoot function that behaves as a singleton
+        // we have to override it to ensure spasm renders itself inside this widget's dom element
+        const customGetRoot = () => spasm.addObject(this.el);
+        const patchedSpaModule = {
+            jsExports: {
+                env: Object.assign(
+                    {},
+                    spa.jsExports.env,
+                    modelExports.env,
+                    {getRoot: customGetRoot, getModel: () => spasm.addObject(this.model)}
+                )
+            }
+        };
+        spasm.init([spasmModule,patchedSpaModule])
     }
 });
-
-
-module.exports = {
-    HelloModel : HelloModel,
-    HelloView : HelloView
-};

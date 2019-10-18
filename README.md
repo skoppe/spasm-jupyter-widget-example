@@ -33,3 +33,11 @@ To see a change, save your javascript, watch the terminal for an update.
 
 Note on first `jupyter lab --watch`, you may need to touch a file to get Jupyter Lab to open.
 
+Development
+-----------
+
+Follow above development installation instructions.
+
+Javascript/D changes are applied in the notebook when reloading the page (Ctrl-r).
+
+Python changes require a restart of the kernel.

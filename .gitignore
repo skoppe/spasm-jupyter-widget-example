@@ -5,8 +5,7 @@ build/
 *.py[cod]
 node_modules/
 
-# Compiled javascript
-spasm-jupyter-widget-example/static/
-
 # OS X
 .DS_Store
+
+.dub
