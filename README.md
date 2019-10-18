@@ -1,7 +1,18 @@
-spasm_jupyter_widget_example
+Spasm Jupyter Widget Example
 ===============================
 
-A Custom Jupyter Widget Library
+A simple jupyter widget written in D and compiled to Webassembly.
+
+It renders a simple '+' button, incrementing a counter.
+
+In the IncrExample notebook it is linked together with a basic IntText Widget, with full 2 way data bindings.
+
+- [source/bindings.d](https://github.com/skoppe/spasm-jupyter-widget-example/blob/master/source/bindings.d) contains the D bindings to the jupyter model.
+- [source/app.d](https://github.com/skoppe/spasm-jupyter-widget-example/blob/master/source/app.d) contains a simple spasm application with 3 functions calling into the jupyter model bindinds functions.
+- [js/lib/example.js](https://github.com/skoppe/spasm-jupyter-widget-example/blob/master/js/lib/example.js) contains generic javascript glue code which initialized the wasm instance. The functions in the `modelExports` correspond to the exports in the `bindings.d` file.
+- [spasm_jupyter_widget_example/example.py](https://github.com/skoppe/spasm-jupyter-widget-example/blob/master/spasm_jupyter_widget_example/example.py) contains the python widget code.
+
+The glue code and the bindings are very minimal, just enough for this example.
 
 Installation
 ------------
