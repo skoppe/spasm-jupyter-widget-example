@@ -1,12 +1,12 @@
 {
-  "name": "spasm-jupyter-widget-example",
+  "name": "spasm_jupyter_widget_example",
   "version": "0.1.0",
   "description": "A Custom Jupyter Widget Library",
   "author": "Sebastiaan Koppe",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/skoppe/spasm-jupyter-widget-example.git"
+    "url": "https://github.com/skoppe/spasm_jupyter_widget_example.git"
   },
   "keywords": [
     "jupyter",

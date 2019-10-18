@@ -1,4 +1,4 @@
-spasm-jupyter-widget-example
+spasm_jupyter_widget_example
 ===============================
 
 A Custom Jupyter Widget Library
@@ -8,20 +8,20 @@ Installation
 
 To install use pip:
 
-    $ pip install spasm-jupyter-widget-example
-    $ jupyter nbextension enable --py --sys-prefix spasm-jupyter-widget-example
+    $ pip3 install spasm_jupyter_widget_example
+    $ jupyter nbextension enable --py --sys-prefix spasm_jupyter_widget_example
 
 To install for jupyterlab
 
-    $ jupyter labextension install spasm-jupyter-widget-example
+    $ jupyter labextension install spasm_jupyter_widget_example
 
 For a development installation (requires npm),
 
-    $ git clone https://github.com/skoppe/spasm-jupyter-widget-example.git
-    $ cd spasm-jupyter-widget-example
-    $ pip install -e .
-    $ jupyter nbextension install --py --symlink --sys-prefix spasm-jupyter-widget-example
-    $ jupyter nbextension enable --py --sys-prefix spasm-jupyter-widget-example
+    $ git clone https://github.com/skoppe/spasm_jupyter_widget_example.git
+    $ cd spasm_jupyter_widget_example
+    $ pip3 install -e .
+    $ jupyter nbextension install --py --symlink --sys-prefix spasm_jupyter_widget_example
+    $ jupyter nbextension enable --py --sys-prefix spasm_jupyter_widget_example
     $ jupyter labextension install js
 
 When actively developing your extension, build Jupyter Lab with the command:

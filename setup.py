@@ -66,8 +66,8 @@ class NPM(Command):
     node_modules = os.path.join(node_root, 'node_modules')
 
     targets = [
-        os.path.join(here, 'spasm-jupyter-widget-example', 'static', 'extension.js'),
-        os.path.join(here, 'spasm-jupyter-widget-example', 'static', 'index.js')
+        os.path.join(here, 'spasm_jupyter_widget_example', 'static', 'extension.js'),
+        os.path.join(here, 'spasm_jupyter_widget_example', 'static', 'index.js')
     ]
 
     def initialize_options(self):
@@ -121,22 +121,22 @@ class NPM(Command):
         update_package_data(self.distribution)
 
 version_ns = {}
-with open(os.path.join(here, 'spasm-jupyter-widget-example', '_version.py')) as f:
+with open(os.path.join(here, 'spasm_jupyter_widget_example', '_version.py')) as f:
     exec(f.read(), {}, version_ns)
 
 setup_args = {
-    'name': 'spasm-jupyter-widget-example',
+    'name': 'spasm_jupyter_widget_example',
     'version': version_ns['__version__'],
     'description': 'A Custom Jupyter Widget Library',
     'long_description': LONG_DESCRIPTION,
     'include_package_data': True,
     'data_files': [
-        ('share/jupyter/nbextensions/spasm-jupyter-widget-example', [
-            'spasm-jupyter-widget-example/static/extension.js',
-            'spasm-jupyter-widget-example/static/index.js',
-            'spasm-jupyter-widget-example/static/index.js.map',
+        ('share/jupyter/nbextensions/spasm_jupyter_widget_example', [
+            'spasm_jupyter_widget_example/static/extension.js',
+            'spasm_jupyter_widget_example/static/index.js',
+            'spasm_jupyter_widget_example/static/index.js.map',
         ],),
-        ('etc/jupyter/nbconfig/notebook.d' ,['spasm-jupyter-widget-example.json'])
+        ('etc/jupyter/nbconfig/notebook.d' ,['spasm_jupyter_widget_example.json'])
     ],
     'install_requires': [
         'ipywidgets>=7.0.0',
@@ -152,7 +152,7 @@ setup_args = {
 
     'author': 'Sebastiaan Koppe',
     'author_email': 'mail@skoppe.eu',
-    'url': 'https://github.com/skoppe/spasm-jupyter-widget-example',
+    'url': 'https://github.com/skoppe/spasm_jupyter_widget_example',
     'keywords': [
         'ipython',
         'jupyter',

@@ -6,6 +6,6 @@ def _jupyter_nbextension_paths():
     return [{
         'section': 'notebook',
         'src': 'static',
-        'dest': 'spasm-jupyter-widget-example',
-        'require': 'spasm-jupyter-widget-example/extension'
+        'dest': 'spasm_jupyter_widget_example',
+        'require': 'spasm_jupyter_widget_example/extension'
     }]

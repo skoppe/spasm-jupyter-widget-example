@@ -7,5 +7,5 @@ Package Install
 - [node](http://nodejs.org/)
 
 ```bash
-npm install --save spasm-jupyter-widget-example
+npm install --save spasm_jupyter_widget_example
 ```

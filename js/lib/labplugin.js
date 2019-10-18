@@ -2,11 +2,11 @@ var plugin = require('./index');
 var base = require('@jupyter-widgets/base');
 
 module.exports = {
-  id: 'spasm-jupyter-widget-example',
+  id: 'spasm_jupyter_widget_example',
   requires: [base.IJupyterWidgetRegistry],
   activate: function(app, widgets) {
       widgets.registerWidget({
-          name: 'spasm-jupyter-widget-example',
+          name: 'spasm_jupyter_widget_example',
           version: plugin.version,
           exports: plugin
       });
