@@ -1,6 +1,4 @@
 var widgets = require('@jupyter-widgets/base');
-var _ = require('lodash');
-
 
 // Custom Model. Custom widgets models must at least provide default values
 // for model attributes, including
